@@ -1,0 +1,657 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: "Beaufort for LOL";
+}
+/* def les couleur pour eviter de les ecrire a chaque fois */
+:root {
+  --bg-color: #000000;
+  --second-bg-color: #000000;
+  --text-color: white;
+  /* 9900FF violet */
+  --main-color: #7000ff;
+}
+/* police d'écriture*/
+html {
+  font-size: 60%;
+  overflow-x: hidden;
+}
+/* couleur fond */
+body{
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+/* creation barre du haut  */
+.header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* cree une zone ou ecrire */
+  padding: 3rem 10% ;
+  /* cree la transparence de la barre */
+  background: rgba(0, 0, 0, 0.3);
+  /* effet verre en dessous */
+  backdrop-filter: blur(10px);
+  /* positionne le texte de la barre */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* pour rester en haut de la page */
+  z-index: 1000;
+}
+/* attribut les couleur au text */
+#menu-icon{
+  font-size: 3.5rem;
+  color: var(--main-color);
+  display: none;
+}
+/* attribut les couleur au logo */
+.logo{
+  font-size: 3rem;
+  color: var(--text-color);
+  font-weight: 800;
+  /* permet de dire que le bouton est clicable */
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.logo:hover{
+  /* effet zoom */
+  transform: scale(1.1);
+}
+/* cree l'effet double couleur sur le nom */
+span{
+  background: linear-gradient(
+    270deg,
+    /* #f7b7f7 10%,
+    #7c00cf 100% */
+    #8c93df 10%,
+    #7000ff 100%
+  );
+  /* permet de mettre la double couleur sur et non autour du text */
+  background-clip: text;
+  color: transparent;
+}
+/* bar vavigation emplacement couleur et transition du text */
+.navbar a{
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  border-bottom: 3px solid transparent;
+}
+.navbar a:hover{
+  color: var(--main-color);
+  border-bottom: 3px solid var(--main-color);
+}
+/* cree l'effet sur le bouton */
+.gradient-btn{
+  font-size: 1.8rem;
+  padding: 1rem 0.5rem;
+  border-radius: 3rem;
+  background: linear-gradient(
+    270deg,
+    #8c93df 10%,
+    #7258f2 100%
+  );
+  /* cree couleur plus effet du text sur la barre du haut */
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: white;
+  border: none;
+  text-wrap: nowrap;
+}
+.gradient-btn:hover{
+  /* effet zoom bar */
+  transform: scale(1.05);
+}
+/* positionne text et image */
+section{
+  min-height: 100vh;
+  padding: 10rem 10%  ;
+}
+.home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+}
+/* premiere page */
+.home-content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* place le gros text */
+.home-content h1{
+  font-size: 8rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  line-height: 1;
+}
+/* place "I m an engeeneering student" */
+.home-content h3{
+  margin: 1rem 0;
+  font-size: 4rem;
+}
+/* effet sur engeenering student */
+/* .home-content h3 span{
+  position: relative;
+}
+.home-content h3 span::before{
+  content: "Engineering Student";
+  color: var(--main-color);
+  animation: words 20s infinite
+}
+.home-content h3 span::after{
+  content: "";
+  background-color: var(--bg-color);
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid var(--bg-color);
+  right: -8px;
+  animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+@keyframes cursor{
+  to{
+    border-left: 2px solid var(--main-color);
+  }
+}
+@keyframes words{
+  0%,50%{
+    content:"Engineering Student"
+  }
+  51%,100%{
+    content:"Engineering Student"
+  }
+}
+@keyframes typing{
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: 0;
+  }
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: calc(100% + 8px);
+  }
+} */
+
+
+
+/* place le paragraphe */
+.home-content p{
+  font-size: 2rem;
+  font-weight: 500;
+}
+/* place l'image */
+.home-img img{
+  margin-top: 2rem;
+  /* forme en rond */
+  width: 32vw;
+  border-radius: 50%;
+  /* effet flou de la photo */
+  box-shadow: 0 0 25px var(--main-color);
+  transition: 0.4s ease-in-out;
+}
+.home-img img:hover{
+  box-shadow: 0 0 25px var(--main-color),
+              0 0 50px var(--main-color),
+              0 0 100px var(--main-color);
+}
+.social-icons a{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  padding: 1rem;
+  background: transparent;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  color: var(--main-color);
+  margin: 3rem 0.5rem;
+  transition: 0.3s ease-in-out;
+}
+/* fais l'effet sur les logo insta et autre */
+.social-icons a:hover{
+  color: var(--text-color);
+  background-color: var(--main-color);
+  transform: scale(1.2)translateY(-5px);
+  box-shadow: 0 0 25px var(--main-color);
+}
+.btn-group{
+  display: flex;
+  gap: 1.5rem;
+}
+.btn{
+  display:inline-block;
+  padding: 1rem 3rem;
+  background-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+  border-radius: 3rem;
+  font-size:1.8rem;
+  color: black;
+  border: 2px solid transparent;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+}
+.btn:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--main-color)
+              0 0 50px var(--main-color)
+}
+
+.btn-group a:nth-of-type(2){
+  background-color: black;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 0 0 25px transparent;
+}
+.btn-group a:nth-of-type(2):hover{
+  box-shadow: 0 0 25px var(--main-color);
+  background-color: var(--main-color);
+  color: black;
+}
+
+.about{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* distance entre le text et l'image */
+  gap: 10rem;
+  background: var(--second-bg-color);
+}
+/* imge */
+.about-img img{
+  width: 32vw;
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--main-color);
+  transition: 0.4s ease-in-out;
+}
+/* effet image */
+.about-img img:hover{
+  box-shadow: 0 0 25px var(--main-color),
+              0 0 50px var(--main-color),
+              0 0 100px var(--main-color)
+}
+.about-content h2{
+  font-size: 7rem;
+  text-align: left;
+}
+
+.about-content p{
+
+  font-size: 2rem
+}
+.about-content .btn{
+  margin: 3rem 0;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);
+}
+::-webkit-scrollbar-track{
+  background-color: var(--bg-color);
+  width: 10px;
+}
+/* skills page */
+.heading{
+  font-size: 7rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+}
+.skills{
+  background-color: var(--bg-color);
+  color: black;
+}
+.skills h2{
+  color: var(--text-color)
+}
+.skills-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  gap: 2.5rem;
+}
+.skills-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  height: 400px;
+  border-radius: 3rem;
+  cursor: pointer;
+  border: 5px solid transparent;
+  transition: 0.4s ease-in-out;
+}
+.skills-box:hover{
+  background-color: var(--second-bg-color);
+  color: var(--main-color);
+  border: 5px solid var(--main-color);
+  transform: scale(1.03);
+}
+.skills-info{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+.skills-info h4{
+  font-size: 4rem;
+  margin: 2rem 0;
+  font-weight: 800;
+}
+.skills-info p{
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.skills-info i{
+  font-size: 8rem;
+}
+
+
+/* project page */
+.projects{
+  background-color: var(--second-bg-color);
+}
+.projects h2{
+  font-size: 7rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+}
+.projects-box{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  place-items: center;
+  gap: 10rem;
+  row-gap: 5rem;
+}
+.project-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 3rem;
+  gap: 1rem;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 5px var(--main-color);
+  transition: 0.3s ease;
+}
+.project-card:hover{
+  box-shadow: 0 0 25px var(--main-color),
+              0 0 50px var(--main-color);
+  transform: scale(1.02);
+}
+.project-card img{
+  max-width: 300px;
+  border-radius: 2em;
+  object-fit: cover;
+}
+.project-card h3{
+  display:inline-block;
+  font-size: 1.6rem;
+}
+.project-card p{
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+/* Bouton double du projet 4 */
+.project-btn{
+  display:inline-block;
+  padding: 0.38rem 0.5rem;
+  background-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+  border-radius: 3rem;
+  font-size:1.8rem;
+  color: black;
+  border: 2px solid transparent;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+}
+.project-btn:hover{
+  transform: scale(1.08);
+  box-shadow: 0 0 25px var(--main-color)
+              0 0 50px var(--main-color)
+}
+
+
+
+
+/* page timeline */
+.timeline-section{
+  background: var(--second-bg-color);
+  padding: 100px 15px;
+}
+.timeline-section h2{
+  font-size: 7rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+}
+.timeline-items{
+  /* longeur des box */
+  max-width: 805px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.timeline-items::before{
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background-color: var(--main-color);
+  left: calc(50% - 1px);
+}
+.timeline-item{
+  margin-bottom: 40px;
+  width: 100%;
+  position: relative;
+}
+.timeline-item:last-child{
+  margin-bottom: 0;
+}
+.timeline-item:nth-child(odd){
+  padding-right: calc(50% + 30px);
+  text-align: right;
+}
+.timeline-item:nth-child(even){
+  padding-left: calc(50% + 30px);
+}
+.timeline-dot{
+  height: 21px;
+  width: 21px;
+  background-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+  position: absolute;
+  left: calc(50% - 8px);
+  border-radius: 50%;
+  top: 10px;
+}
+.timeline-date{
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  margin: 6px 0 15px;
+}
+.timeline-content{
+  background-color: var(--second-bg-color);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--main-color);
+  box-shadow: 0 0 10px var(--main-color);
+  padding: 30px;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: 0.4s ease-in-out
+}
+.timeline-content:hover{
+  transform: scale(1.05);
+  box-shadow: O O 25px var(--main-color);
+}
+.timeline-content h3{
+  font-size: 20px;
+  color: var(--main-color);
+  margin: 0 0 10px;
+  text-transform: capitalize;
+  font-weight: 800;
+}
+.timeline-content p{
+  color: white;
+  opacity: 0.8;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22Px;
+}
+
+
+/* contact part derniere page */
+.contact{
+  background-color: var(--bg-color);
+}
+.contact h2{
+  font-size: 7rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+}
+.contact form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 5rem 0;
+  text-align: center;
+}
+.contact form .input-box input,
+.contact form textarea{
+  width: 100%;
+  padding: 2.5rem;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border-radius: 2rem;
+  border: 2px solid var(--main-color);
+  margin: 1.5rem 0;
+  resize: none;
+}
+
+.footer{
+  background-color: var(--second-bg-color);
+  padding: 50px 0;
+}
+.footer .social-icons{
+  text-align: center;
+}
+footer ul{
+  text-align: center;
+  font-size: 1.8rem;
+}
+.footer ul li{
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer ul li a{
+  color: white;
+  border-bottom: 3px solid transparent;
+  transition: 0.3s ease-in-out;
+}
+.footer ul li a:hover{
+  border-bottom: 3px solid var(--main-color);
+}
+.footer .copyright{
+  text-align: center;
+  margin-top:40px;
+  font-size: 16px;
+}
+/* version tel */
+@media(max-width:1000px){
+  #menu-icon{
+    display: block;
+  }
+  .navbar{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50%;
+    padding: 1rem 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom-left-radius: 2rem;
+    border-left: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    display: none;
+  }
+  .navbar a{
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+    color: var(--text-color);
+  }
+  .navbar.active{
+    display: block;
+  }
+  .gradient-btn{
+    display: none;
+  }
+  .home{
+    flex-direction: column-reverse;
+    margin: 5rem 0;
+    gap: 5rem;
+  }
+  .home-content{
+    align-items: center;
+    text-align: center;
+  }
+  .home-img img{
+    width: 56vw;
+  }
+  .about{
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .about h2{
+    text-align: center;
+    margin: 2rem 0;
+  }
+  .about img{
+    width: 50vw;
+  }
+  .contact form{
+    flex-direction: column;
+  }
+}
